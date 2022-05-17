@@ -1,0 +1,37 @@
+version: '3.8'
+services:
+
+  Simulation:
+    container_name: virtual_device
+    hostname: virtual_device
+    image: virtual_device  # keep the same with your local image name
+    restart: always
+    volumes:
+      # bind mount the secret on the local file. The secret has to be updated in the local file
+      - ./devices/simulation.py:/app/simulation.py
+    ports:
+      - "8001:8000"
+    environment:
+      - GATEWAY_HOST=gateway
+      - GATEWAY_PORT=5000
+    networks:
+        - n5gehtutorial
+
+  Gateway:
+    container_name: gateway
+    hostname: gateway
+    image: gateway
+    restart: always
+    volumes:
+      - ./gateway/devices.json:/app/devices.json
+      - ./gateway/mapping.json:/app/mapping.json
+      - ./gateway/mqttclient.py:/app/mqttclient.py
+      - ./gateway/socketinterface.py:/app/socketinterface.py
+      - ./gateway/socket2mqtt.py:/app/socket2mqtt.py
+    environment:
+      # Fiware platform information
+      - IOTA_URL=http://host.docker.internal:4041  # host.docker.internal in the container maps up with the localhost
+    networks:
+      - n5gehtutorial
+networks:
+   n5gehtutorial:

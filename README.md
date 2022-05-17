@@ -2,8 +2,7 @@
 
 This is a tutorial of the N5GEH project. It is intended to provide a brief overview
 about how devices (sensors/actuators) can be connected to a FIWARE IoT framework as used by the N5GEH project. This
-tutorial uses a simple scenario to work you through the whole procedure of 
-connecting devices to the framework and the usage of 
+tutorial uses a simple scenario to work you through the whole procedure of connecting devices to the framework and the usage of 
 two basic services: **Live monitoring** and a **cloud controller**.
 
 Before you start, please make sure that the following prerequisites are fulfilled.

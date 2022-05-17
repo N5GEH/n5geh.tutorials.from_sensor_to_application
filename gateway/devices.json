@@ -1,0 +1,74 @@
+[
+    {
+        "device_id": "device:001",
+        "apikey": "n5gehtutorial",
+        "service": "controller",
+        "service_path": "/",
+        "entity_name": "urn:ngsi-ld:WeatherStation:001",
+        "entity_type": "WeatherStation",
+        "timestamp": null,
+        "endpoint": null,
+        "transport": "MQTT",
+        "attributes": [
+            {
+                "object_id": "t_amb",
+                "name": "temperature",
+                "type": "Number"
+            }
+        ],
+        "lazy": [],
+        "commands": [],
+        "static_attributes": [],
+        "protocol": "IoTA-JSON",
+        "explicitAttrs": false,
+        "ngsiVersion": "v2"
+    },
+    {
+        "device_id": "device:002",
+        "apikey": "n5gehtutorial",
+        "service": "controller",
+        "service_path": "/",
+        "entity_name": "urn:ngsi-ld:TemperatureSensor:001",
+        "entity_type": "TemperatureSensor",
+        "timestamp": null,
+        "endpoint": null,
+        "transport": "MQTT",
+        "attributes": [
+            {
+                "object_id": "t_zone",
+                "name": "temperature",
+                "type": "Number"
+            }
+        ],
+        "lazy": [],
+        "commands": [],
+        "static_attributes": [],
+        "protocol": "IoTA-JSON",
+        "explicitAttrs": false,
+        "ngsiVersion": "v2"
+    },
+    {
+        "device_id": "device:003",
+        "apikey": "n5gehtutorial",
+        "service": "controller",
+        "service_path": "/",
+        "entity_name": "urn:ngsi-ld:Heater:001",
+        "entity_type": "Heater",
+        "timestamp": null,
+        "endpoint": null,
+        "transport": "MQTT",
+        "attributes": [],
+        "lazy": [],
+        "commands": [
+            {
+                "object_id": "heater_power",
+                "name": "heater_power",
+                "type": "Number"
+            }
+        ],
+        "static_attributes": [],
+        "protocol": "IoTA-JSON",
+        "explicitAttrs": false,
+        "ngsiVersion": "v2"
+    }
+]

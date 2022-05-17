@@ -1,0 +1,30 @@
+{
+  "NOTE": {
+    "1": "UNR_1.x, URN_2.x depend on the transmission protocol, e.g. ZigBee, WLAN, LoRo etc.",
+    "2": "URN_1.x is needed to identify the device",
+    "3": "URN_2.x is needed to identify the attribute/command",
+    "4": "URN_2.x can be an empty strings '', if the device has only one attribute or command",
+    "5": "entity_name is not mandatory, but can be used to make the mapping intuitive"
+  },
+  "UNR_1.x": {
+      "device_id": "device_id",
+      "entity_name": "entity_name",
+      "attribute/command": {
+          "URN_2.x": "attribute_name"
+      }
+  },
+  "UNR_1.x": {
+      "device_id": "xxx",
+      "entity_name": "xxx_xxx:xxxx",
+      "attribute/command": {
+          "URN_2.x": "xxx"
+      }
+  },
+  "UNR_1.x": {
+      "device_id": "xxx",
+      "entity_name": "xxx_xxx:xxxx",
+      "attribute/command": {
+          "URN_2.x": "xxx"
+      }
+  }
+}

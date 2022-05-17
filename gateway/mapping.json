@@ -1,0 +1,23 @@
+{
+    "c006d64e-69b2": {
+        "device_id": "device:001",
+        "entity_name": "urn:ngsi-ld:WeatherStation:001",
+        "attribute/command": {
+            "": "temperature"
+        }
+    },
+    "ddad85db-3873": {
+        "device_id": "device:002",
+        "entity_name": "urn:ngsi-ld:TemperatureSensor:001",
+        "attribute/command": {
+            "": "temperature"
+        }
+    },
+    "0e83dd93-ba49": {
+        "device_id": "device:003",
+        "entity_name": "urn:ngsi-ld:Heater:001",
+        "attribute/command": {
+            "": "heater_power"
+        }
+    }
+}
