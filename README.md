@@ -2,7 +2,8 @@
 
 This is a tutorial of the N5GEH project. It is intended to provide a brief overview
 about how devices (sensors/actuators) can be connected to a FIWARE IoT framework as used by the N5GEH project. This
-tutorial uses a simple scenario to work you through the whole procedure of connecting devices to the framework and the usage of 
+tutorial uses a simple scenario to work you through the whole procedure of 
+connecting devices to the framework and the usage of 
 two basic services: **Live monitoring** and a **cloud controller**.
 
 Before you start, please make sure that the following prerequisites are fulfilled.
@@ -35,7 +36,7 @@ The first step of building smart systems is to deploy devices, e.g.
 sensors and actuators. In this tutorial, we consider a simple scenario as shown 
 in Figure 1.
 
-<img src="../figures/model.png" alt="A process controlled by a PID controller" width="400"/>
+<img src="figures/model.png" alt="A process controlled by a PID controller" width="400"/>
 
 *Figure 1: A simple house with an electric heater*
 
@@ -55,7 +56,7 @@ docker start virtual_device
 The simulation can be monitored live on the [web GUI](http://localhost:8000/) as shown 
 in Figure 2.
 
-<img src="../figures/gui.png" alt="Simulation" width="300"/>
+<img src="figures/gui.png" alt="Simulation" width="300"/>
 
 *Figure 2: Monitor the simulation on Web GUI*
 
@@ -104,7 +105,7 @@ The URNs represent the identifier of devices (URN_1) and their
 attributes/commands (URN_2). In this tutorial there are three devices, and each
 device has only one attribute or one command. Their URNs are set as follows:
 
-<img src="../figures/identifiers.png" alt="Network architecture of this tutorial" width="400"/>
+<img src="figures/identifiers.png" alt="Network architecture of this tutorial" width="400"/>
 
 Since the data flow of socket communication is not directly supported by FIWARE, a gateway has to be deployed as a middleware
 between socket and MQTT protocol. The gateway will map the URNs with 
@@ -113,7 +114,7 @@ gateway via socket, and the gateway forwards the received data with proper MQTT 
 the MQTT Broker, so the measurements can reach the FIWARE platform.
 The data flows of commands are exactly opposite. Figure X gives a brief view of the network architecture of this tutorial.
 
-<img src="../figures/architecture.png" alt="Network architecture of this tutorial" width="300"/>
+<img src="figures/architecture.png" alt="Network architecture of this tutorial" width="300"/>
 
 *Figure 3: The network architecture of this tutorial*
 
@@ -189,7 +190,7 @@ Then we need to connect to the CrateDB, in which the data is persisted. Create a
 - **User:** crate
 - **SSL Mode:** disable
 
-<img src="../figures/Grafana_datasource.png" alt="Data source setup in Grafana" width="300"/>
+<img src="figures/Grafana_datasource.png" alt="Data source setup in Grafana" width="300"/>
 
 *Figure 4: Setup of Grafana Datasource*
 
@@ -201,7 +202,7 @@ Now you should be able to monitor the live change of the attributes' values just
 shown in Figure 5. Feel free to change the heating power and then view the
 simulation results on the dashboard.
 
-<img src="../figures/Grafana_dashboard.png" alt="Data source setups in Grafana" width="600"/>
+<img src="figures/Grafana_dashboard.png" alt="Data source setups in Grafana" width="600"/>
 
 *Figure 5: Setups of Grafana Datasource*
 
@@ -213,7 +214,7 @@ controller. Unlike local controller, a cloud controller does not directly connec
 to sensors or actuators, but reads measurements and send commands via the platform.
 Figure 6 illustrates the architecture of this concept. 
 
-<img src="../figures/architecture_controller.png" alt="Cloud controller" width="400"/>
+<img src="figures/architecture_controller.png" alt="Cloud controller" width="400"/>
 
 *Figure 6: FIWARE platform with cloud controller*
 
@@ -254,7 +255,7 @@ docker compose up -d
 
 Now you can see the effect of the PID controller in [Grafana dashboard](http://localhost:3001).
 
-<img src="../figures/Grafana_controller.png" alt="Effect of PID controller" width="600"/>
+<img src="figures/Grafana_controller.png" alt="Effect of PID controller" width="600"/>
 
 *Figure 7: The effect of the PID controller*
 
