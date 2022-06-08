@@ -17,7 +17,7 @@ inner_temp_sensor_urn = "ddad85db-3873"  # zone temperature sensor
 indoor_temp_urn = ""  # urn for attribute name
 
 heater_urn = "0e83dd93-ba49"
-heater_power_urn = ""  # urn for command name
+heaterPower_urn = ""  # urn for command name
 
 
 class Simulation:
@@ -78,7 +78,7 @@ class Simulation:
             [sg.Text("", size=(15, 2))],
 
             [image_heater, sg.Text("Heater", size=(15, 3)),
-             sg.Text(self.sim_model.heater_power, key="heating_power"), sg.Text(f" W"),
+             sg.Text(self.sim_model.heaterPower, key="heating_power"), sg.Text(f" W"),
              sg.InputText("Heater Power", key="heating_power_change", size=(7, 1)), sg.Button("Change", key="CHANGE")],
             [sg.Text("", size=(15, 2))],
 
@@ -94,8 +94,8 @@ class Simulation:
         elif event == "CHANGE":
             print("Change heating power", flush=True)
             try:
-                heater_power = float(values["heating_power_change"])
-                self.sim_model.heater_power = heater_power
+                heaterPower = float(values["heating_power_change"])
+                self.sim_model.heaterPower = heaterPower
             except ValueError:
                 print("Wrong value type of heater power", flush=True)
 
@@ -104,7 +104,7 @@ class Simulation:
         # update parameter values
         self.window["temp_amb"].update(round(self.sim_model.t_amb, 1))
         self.window["temp_zone"].update(round(self.sim_model.t_zone, 1))
-        self.window["heating_power"].update(round(self.sim_model.heater_power, 1))
+        self.window["heating_power"].update(round(self.sim_model.heaterPower, 1))
         sim_time_h = str(int(self.sim_model.t_sim // (60*60)))
         if len(sim_time_h) < 2:
             sim_time_h = "0" + sim_time_h
@@ -205,8 +205,8 @@ class Simulation:
         if command:
             print(f"command: {command}", flush=True)
             command = dict(json.loads(command))
-            urn = heater_urn + "/" + heater_power_urn
-            self.sim_model.heater_power = float(command.get(urn))
+            urn = heater_urn + "/" + heaterPower_urn
+            self.sim_model.heaterPower = float(command.get(urn))
         client_socket.close()  # close the connection
 
 

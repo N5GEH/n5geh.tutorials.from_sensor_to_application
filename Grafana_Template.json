@@ -179,13 +179,13 @@
           "group": [],
           "metricColumn": "entity_id",
           "rawQuery": false,
-          "rawSql": "SELECT\n  time_index AS \"time\",\n  entity_id AS metric,\n  heater_power_info\nFROM etheater\nORDER BY 1,2",
+          "rawSql": "SELECT\n  time_index AS \"time\",\n  entity_id AS metric,\n  heaterPower_info\nFROM etheater\nORDER BY 1,2",
           "refId": "A",
           "select": [
             [
               {
                 "params": [
-                  "heater_power_info"
+                  "heaterPower_info"
                 ],
                 "type": "column"
               }

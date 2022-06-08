@@ -31,6 +31,8 @@ services:
     environment:
       # Fiware platform information
       - IOTA_URL=http://host.docker.internal:4041  # host.docker.internal in the container maps up with the localhost
+      - MQTT_HOST=host.docker.internal  # host.docker.internal in the container maps up with the localhost
+      - MQTT_PORT=1883
     networks:
       - n5gehtutorial
 networks:

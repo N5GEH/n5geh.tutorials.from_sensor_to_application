@@ -1,10 +1,10 @@
 # N5GEH Tutorial
 
-This is a tutorial of the N5GEH project. It is intended to provide a brief overview
-about how devices (sensors/actuators) can be connected to a FIWARE IoT framework as used by the N5GEH project. This
+This is a tutorial of N5GEH project. This tutorial intended to provide a brief overview
+about how devices (sensors/actuators) can be connected to the FIWARE IoT platform. This
 tutorial uses a simple scenario to work you through the whole procedure of 
-connecting devices to the framework and the usage of 
-two basic services: **Live monitoring** and a **cloud controller**.
+connecting devices to FIWARE platform. Besides, this tutorial also shows the usage of 
+two basic services, i.e. live monitoring and cloud controller.
 
 Before you start, please make sure that the following prerequisites are fulfilled.
 
@@ -18,7 +18,7 @@ Before you start, please make sure that the following prerequisites are fulfille
 
     You must have access to a [N5GEH FIWARE platform](https://github.com/N5GEH/n5geh.platform), which can be hosted either on your local machine or somewhere else. For these examples, it is recommended that you host a platform on your local machine.
 
-- [Postman](https://www.postman.com) or any other API development Platform.
+- (Postman)
 
 ## Step by step
 
@@ -32,17 +32,17 @@ This script will build all the images required by this tutorial.
 
 ### Step 1: Deploy Devices
 
-The first step of building smart systems is to deploy devices, e.g. 
+The first step of building a smart systems is to deploy the devices, e.g. 
 sensors and actuators. In this tutorial, we consider a simple scenario as shown 
 in Figure 1.
 
-<img src="figures/model.png" alt="A process controlled by a PID controller" width="400"/>
+<img src="../figures/model.png" alt="A process controlled by a PID controller" width="400"/>
 
 *Figure 1: A simple house with an electric heater*
 
-In this scenario, there are three devices:
-- Outdoor temperature sensor
-- Indoor temperature sensor
+Under this scenario, there are three devices:
+- Outdoor temperature sensor in the weather station
+- Indoor temperature sensor in the house
 - Electric heater
 
 This scenario is simulated in a container. Use the following
@@ -56,17 +56,17 @@ docker start virtual_device
 The simulation can be monitored live on the [web GUI](http://localhost:8000/) as shown 
 in Figure 2.
 
-<img src="figures/gui.png" alt="Simulation" width="300"/>
+<img src="../figures/gui.png" alt="Simulation" width="300"/>
 
 *Figure 2: Monitor the simulation on Web GUI*
 
-> **NOTE:** the virtual devices are now deployed in a container
+> **NOTE:** the virtual devices are now only deployed in a container
 but can still not communicate with the FIWARE platform. The 
 connection between them will be established in the following steps.
 
 ### Step 2: Provision the Devices on N5GEH FIWARE Platform
 
-In this step, we will provision the devices on our FIWARE platform. Each device has to be provisioned, so that the platform can ever know what can be measured by the sensor and what commands can be sent to the actuators. The Provisioning is done by sending HTTP request to the [IoT Agent](https://iotagent-node-lib.readthedocs.io/en/latest/api.html) API. For this tutorial, it is not requied to understand the logics behind these HTTP requests. Therefore, we prepared a postman collection to collect the necessary HTTP requests.
+In this step, we will provision the devices on FIWARE platform. Each device has to be provisioned, so that the platform can ever know what can be measured by the sensor and what commands can be sent to the actuators. The Prosioning is done by sending HTTP request to the [IoT Agent](https://iotagent-node-lib.readthedocs.io/en/latest/api.html) API. For this tutorial, it is not requied to understand the logics behind these HTTP requests. Therefore, we prepare a postman collection to collect the necessary HTTP requests.
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/19622830-f4344360-fe69-4e2d-a935-b7dbbc51eca4?action=collection%2Ffork&collection-url=entityId%3D19622830-f4344360-fe69-4e2d-a935-b7dbbc51eca4%26entityType%3Dcollection%26workspaceId%3D2c722372-0f8e-4b7b-9661-17f17ec8c7fb)
 
@@ -81,15 +81,15 @@ Please complete the following steps using the corresponding postman requests:
 
 ### Step 3: Connect the Devices to the Platform
 
-Now we have created the entities of the devices on our FIWARE platform.
+Now we have created the entities of the devices on FIWARE platform.
 The data transmission between the entities and the virtual devices 
-still needs to be established. FIWARE is designed to communicate with devices via HTTP or MQTT in a FIWARE specific way.
+still need to be established. FIWARE is designed to communicate with devices via HTTP or MQTT and with its own rules.
 For example, for using HTTP some parameters are mandatory, and for using MQTT the 
-topics are device specific and the message-protocol has to match the corresponding [IoT Agent](https://iotagent-node-lib.readthedocs.io/en/latest/api.html) being used. In this tutorial, we use MQTT as the communication protocol and the [IoT Agent for JSON](https://fiware-iotagent-json.readthedocs.io/en/latest/) for the message protocol.
+topics are device specific. In this tutorial, we use MQTT as the communication protocol.
 
 The devices in this tutorial runs in a simulation program. Therefore, with just some additional
 program code, it is rather simple to let them send/receive data directly via MQTT.
-However, in the real world the devices must be connected to a network via a 
+However, in the real practice the devices must be connected to a network via a 
 communications technology, e.g. TCP, NB-IoT, LoRaWAN etc. In order to emulate this 
 data transmission process, the virtual devices use socket, i.e. TCP, to
 transmit data. The transmitted data follows the JSON format:
@@ -105,25 +105,26 @@ The URNs represent the identifier of devices (URN_1) and their
 attributes/commands (URN_2). In this tutorial there are three devices, and each
 device has only one attribute or one command. Their URNs are set as follows:
 
-<img src="figures/identifiers.png" alt="Network architecture of this tutorial" width="400"/>
+<img src="../figures/identifiers.png" alt="Network architecture of this tutorial" width="400"/>
 
-Since the data flow of socket communication is not directly supported by FIWARE, a gateway has to be deployed as a middleware
+Since the data flow of socket communication is not supported by FIWARE
+(just like many other communications technology), a gateway has to be deployed as a middleware
 between socket and MQTT protocol. The gateway will map the URNs with 
 the device specific MQTT topics. In this way, measurements will be first sent to the
 gateway via socket, and the gateway forwards the received data with proper MQTT topics to
-the MQTT Broker, so the measurements can reach the FIWARE platform.
+the MQTT Broker. And then the measurements can reach the FIWARE platform.
 The data flows of commands are exactly opposite. Figure X gives a brief view of the network architecture of this tutorial.
 
-<img src="figures/architecture.png" alt="Network architecture of this tutorial" width="300"/>
+<img src="../figures/architecture.png" alt="Network architecture of this tutorial" width="300"/>
 
 *Figure 3: The network architecture of this tutorial*
 
 As next step, we need to load the information of FIWARE devices to the gateway. This information
-can be queried via HTTP request from FIWARE platform (or through the Entirety App). The corresponding
+can be queried via HTTP request from FIWARE platform (acquired from SENSE APP). The corresponding
 request is given in the postman collections, `Check Devices`. Copy and past the request results to the file
-`devices.json`, so that the gateway knows the corresponding topic of each device.
+`devices.json`, so that the gateway can know the corresponding topic of each device.
 
-Then, we need to set up the mapping between FIWARE devices and the URNs 
+And then, we need to set up the mapping between FIWARE devices and the URNs 
 of virtual devices. A template of the mapping is given by 
 `dummy_mapping.json`. Please fill in this file and save it as `mapping.json`.
 Then the gateway will know which URNs correspond to which device and which
@@ -150,7 +151,7 @@ Here is an example of `mapping.json`:
         "device_id": "device:003",
         "entity_name": "urn:ngsi-ld:Heater:001",
         "attribute/command": {
-            "": "heater_power"
+            "": "heaterPower"
         }
     }
 }
@@ -168,21 +169,21 @@ following command:
 docker start gateway
 ```
 
-In oder to check the connection, we will try to change the heater power by sending a command
-to our FIWARE platform. The request is called `Send Command` in the postman collection.
+In oder to check the connection, we will try to chang the heater power by sending command
+to FIWARE platform. The corresponding request is `Send Command` in the postman collection.
 The heater power can be changed in the payload ("Body") of the request. If the connection
-is successfully established, you will see a change in the heater's power on the [web GUI](http://localhost:8000/)
+is successfully established, you will see the change of heater power on the [web GUI](http://localhost:8000/)
 of the simulation.
 
 ### Step 4: Monitoring Services
 
-The FIWARE platform provides a live monitoring service via Grafana. The user
-can view values of entity attributes on a dashboard. To start the service,
+FIWARE platform provides a live monitoring service via Grafana. The users
+can view the value of entity attributes on a dashboard. To start the service,
 please first log in to the [Grafana Dashboard](http://localhost:3001) with the 
 default username `admin` and default password `admin`.
 
-Then we need to connect to the CrateDB, in which the data is persisted. Create a `PostgreSQL` datasource
-[here](http://localhost:3003/datasources) and use the following setup.
+Then we need to connect to the CrateDB. Create a `PostgreSQL` datasource
+[here](http://localhost:3003/datasources) and use the following setups.
 
 - **Name:** Controller (an arbitrary name)
 - **Host:** crate:5432 (crate is the host name of CrateDB inside the docker network, 5432 is an internal open port for SQL query)
@@ -190,44 +191,44 @@ Then we need to connect to the CrateDB, in which the data is persisted. Create a
 - **User:** crate
 - **SSL Mode:** disable
 
-<img src="figures/Grafana_datasource.png" alt="Data source setup in Grafana" width="300"/>
+<img src="../figures/Grafana_datasource.png" alt="Data source setups in Grafana" width="300"/>
 
-*Figure 4: Setup of Grafana Datasource*
+*Figure 4: Setups of Grafana Datasource*
 
 As next step, the time-series data of each device can be queried and displayed in a 
 dashboard. For simplicity, you can load an existing template, 
 `Grafana_Template.json`, [here](http://localhost:3001/dashboard/import).
 
-Now you should be able to monitor the live change of the attributes' values just as 
-shown in Figure 5. Feel free to change the heating power and then view the
+Now you should be able to monitor the live change of the attribute's values just as 
+shown in Figure 5. Feel free to change the hearting power and then view the
 simulation results on the dashboard.
 
-<img src="figures/Grafana_dashboard.png" alt="Data source setups in Grafana" width="600"/>
+<img src="../figures/Grafana_dashboard.png" alt="Data source setups in Grafana" width="600"/>
 
 *Figure 5: Setups of Grafana Datasource*
 
 ### Step 5: Controller Services
 
 Beside the existing monitoring service, it is possible to deploy 
-various custom applications to a FIWARE platform, for example a cloud
+various custom applications to FIWARE platform, for example a cloud
 controller. Unlike local controller, a cloud controller does not directly connect
 to sensors or actuators, but reads measurements and send commands via the platform.
 Figure 6 illustrates the architecture of this concept. 
 
-<img src="figures/architecture_controller.png" alt="Cloud controller" width="400"/>
+<img src="../figures/architecture_controller.png" alt="Cloud controller" width="400"/>
 
 *Figure 6: FIWARE platform with cloud controller*
 
-In the N5GEH project, a 
+In N5GEH project, a 
 [PID controller](https://github.com/N5GEH/n5geh.services.controller/tree/master/PIDControl)
-has been developed for the FIWARE framework, which can be deployed to any
+is already developed for FIWARE platform, which can be deployed to any
 single-input-single-output (SISO) system. The devices in this tutorial
 construct a typical SISO-System, in which the heater power is the
 control variable and the indoor temperature is the process variable.
 As next step, we will deploy the PID controller to this system.
 
-The PID controller needs to know the information of the existing devices, so that it can
-send correct queries to our FIWARE platform. This information can be configured in
+The PID controller need to know the information of FIWARE devices, so that it can
+send correct queries to FIWARE platform. This information can be configured in
 `n5geh.services.controller/PIDControl/docker-compose.yml` by adjusting the 
 corresponding environment variables. The following variables have to be set
 properly before starting the controller.
@@ -244,9 +245,9 @@ properly before starting the controller.
 
 - **ACTUATOR_ENTITY_NAME**=urn:ngsi-ld:Heater:001
 - **ACTUATOR_TYPE**=Heater
-- **ACTUATOR_COMMAND**=heater_power
+- **ACTUATOR_COMMAND**=heaterPower
 
-The PID controller can be started with the following command:
+PID controller can be started with the following command:
 
 ```bash
 cd n5geh.services.controller/PIDControl
@@ -255,7 +256,7 @@ docker compose up -d
 
 Now you can see the effect of the PID controller in [Grafana dashboard](http://localhost:3001).
 
-<img src="figures/Grafana_controller.png" alt="Effect of PID controller" width="600"/>
+<img src="../figures/Grafana_controller.png" alt="Effect of PID controller" width="600"/>
 
 *Figure 7: The effect of the PID controller*
 

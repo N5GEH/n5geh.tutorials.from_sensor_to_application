@@ -86,14 +86,14 @@ class SimulationModel:
         return self.t_sim, self.t_amb, self, self.t_zone
 
     @property
-    def heater_power(self):
+    def heaterPower(self):
         """
         Returns heating power in [W]
         """
         return self.q_h
 
-    @heater_power.setter
-    def heater_power(self, power: [int, float]):
+    @heaterPower.setter
+    def heaterPower(self, power: [int, float]):
         """
         Sets heating power
 

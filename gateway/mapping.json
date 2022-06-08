@@ -17,7 +17,7 @@
         "device_id": "device:003",
         "entity_name": "urn:ngsi-ld:Heater:001",
         "attribute/command": {
-            "": "heater_power"
+            "": "heaterPower"
         }
     }
 }

@@ -43,7 +43,7 @@ class Transducer:
         self.heater = iotac.get_device(device_id="device:003")
 
         # initialize sensor and actuator data
-        self.heater_power = None
+        self.heaterPower = None
         self.temp_amb = None
         self.temp_zone = None
 
@@ -66,8 +66,8 @@ class Transducer:
                 client.get_encoder(PayloadProtocol.IOTA_JSON).decode_message(
                     msg=msg)
             # Update the heating power of the simulation model
-            self.heater_power = float(payload["heater_power"])
-            print(f"receive command {self.heater_power}")
+            self.heaterPower = float(payload["heaterPower"])
+            print(f"receive command {self.heaterPower}")
 
             # Acknowledge the command (necessary!)
             client.publish(device_id=device_id,
@@ -133,8 +133,8 @@ class Transducer:
                 self.temp_zone = float(measurements.get("temp_zone"))
 
                 # send commands to actuators
-                if isinstance(self.heater_power, (float, int)):
-                    commands = json.dumps({"heater_power": self.heater_power})
+                if isinstance(self.heaterPower, (float, int)):
+                    commands = json.dumps({"heaterPower": self.heaterPower})
                     conn.send(commands.encode())  # send data to the client
                 conn.close()
             except socket.timeout:

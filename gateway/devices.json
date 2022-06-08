@@ -61,8 +61,8 @@
         "lazy": [],
         "commands": [
             {
-                "object_id": "heater_power",
-                "name": "heater_power",
+                "object_id": "heaterPower",
+                "name": "heaterPower",
                 "type": "Number"
             }
         ],
