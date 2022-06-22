@@ -44,10 +44,10 @@ case "${command}" in
       git clone https://github.com/N5GEH/n5geh.services.controller.git
     fi
     # build image of pid controller
-    cd n5geh.services.controller/PIDControl
-    docker build --tag pid4fiware .
+    cd n5geh.services.controller
+    docker build -f PIDControl/Dockerfile --tag pid4fiware .
     # build image of front panel of the pid controller
-    cd control_panel
+    cd PIDControl/control_panel
     docker build --tag pidpanel .
     # build image of the virtual devices
     cd ../../../
