@@ -28,6 +28,8 @@ To start the tutorial, please run the bash script as below:
 ./services create
 ```
 
+> **NOTE:** If the service is not executable, execute `chmod 744 service` in command line to change the right
+
 This script will build all the images required by this tutorial.
 
 ### Step 1: Deploy Devices
