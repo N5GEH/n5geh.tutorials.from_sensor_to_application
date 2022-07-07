@@ -229,25 +229,24 @@ construct a typical SISO-System, in which the heater power is the
 control variable and the indoor temperature is the process variable.
 As next step, we will deploy the PID controller to this system.
 
-The PID controller need to know the information of FIWARE devices, so that it can
-send correct queries to FIWARE platform. This information can be configured in
-`n5geh.services.controller/PIDControl/docker-compose.yml` by adjusting the 
-corresponding environment variables. The following variables have to be set
-properly before starting the controller.
+The PID controller need to know, where it can find the FIWARE platform and which FIWARE devices 
+should be observed or controlled. The information about the FIWARE platform is given by
+the environment variables in `n5geh.services.controller/PIDControl/docker-compose.yml`:
+
 
 - **CB_URL**=http://host.docker.internal:1026
 - **FIWARE_SERVICE**=controller
 - **FIWARE_SERVICE_PATH**=/
 
+- **SAMPLING_TIME**=1
+- **CONTROLLER_ENTITY_ID**=urn:ngsi-ld:PIDController:001
+- **CONTROLLER_ENTITY_TYPE**=PIDController
 
-- **SENSOR_ENTITY_NAME**=urn:ngsi-ld:TemperatureSensor:001
-- **SENSOR_TYPE**=TemperatureSensor
-- **SENSOR_ATTR**=temperature
+And the information of FIWARE devices can be configured in `n5geh.services.controller/PIDControl/config`.
+Normally, these configuration files have to be set properly and then passed to the controller. However,
+the default configurations are already suitable for this tutorial. For more details, please view
+[here](https://github.com/N5GEH/n5geh.services.controller/tree/master/PIDControl)
 
-
-- **ACTUATOR_ENTITY_NAME**=urn:ngsi-ld:Heater:001
-- **ACTUATOR_TYPE**=Heater
-- **ACTUATOR_COMMAND**=heaterPower
 
 PID controller can be started with the following command:
 
