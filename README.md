@@ -201,6 +201,8 @@ As next step, the time-series data of each device can be queried and displayed i
 dashboard. For simplicity, you can load an existing template, 
 `Grafana_Template.json`, [here](http://localhost:3001/dashboard/import).
 
+> **NOTE**: If you get a field type error for `heaterpower_info`, you can downgrade the Grafana version. Change this line [here](https://github.com/N5GEH/n5geh.platform/blob/b9a6a7d55dd0d59d7dcbb71052dc717720822d0e/docker-compose.yml#L103) to `image: grafana/grafana:9.0.1`, and then use `docker compose up -d` to restart the platform.
+
 Now you should be able to monitor the live change of the attribute's values just as 
 shown in Figure 5. Feel free to change the hearting power and then view the
 simulation results on the dashboard.
