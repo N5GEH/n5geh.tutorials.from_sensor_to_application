@@ -55,7 +55,7 @@ docker compose create
 docker start virtual_device
 ```
 
-The simulation can be monitored live on the [web GUI](http://localhost:8000/) as shown 
+The simulation can be monitored live on the [web GUI](http://localhost:8001/) as shown 
 in Figure 2.
 
 <img src="./figures/gui.png" alt="Simulation" width="300"/>
@@ -174,7 +174,7 @@ docker start gateway
 In oder to check the connection, we will try to chang the heater power by sending command
 to FIWARE platform. The corresponding request is `Send Command` in the postman collection.
 The heater power can be changed in the payload ("Body") of the request. If the connection
-is successfully established, you will see the change of heater power on the [web GUI](http://localhost:8000/)
+is successfully established, you will see the change of heater power on the [web GUI](http://localhost:8001/)
 of the simulation.
 
 ### Step 4: Monitoring Services
@@ -185,7 +185,7 @@ please first log in to the [Grafana Dashboard](http://localhost:3001) with the
 default username `admin` and default password `admin`.
 
 Then we need to connect to the CrateDB. Create a `PostgreSQL` datasource
-[here](http://localhost:3003/datasources) and use the following setups.
+[here](http://localhost:3001/datasources) and use the following setups.
 
 - **Name:** Controller (an arbitrary name)
 - **Host:** crate:5432 (crate is the host name of CrateDB inside the docker network, 5432 is an internal open port for SQL query)
