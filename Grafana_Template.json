@@ -234,7 +234,20 @@
       "timeFrom": null,
       "timeShift": null,
       "title": "HeaterPower",
-      "transformations": [],
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "number",
+                "targetField": "heaterPower_info"
+              }
+            ],
+            "fields": {}
+          }
+        }
+      ],
       "type": "timeseries"
     }
   ],
