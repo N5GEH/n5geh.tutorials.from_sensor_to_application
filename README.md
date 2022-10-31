@@ -268,3 +268,17 @@ PID controller on a [GUI control panel](http://localhost:80/)
 
 ## Authors and acknowledgment
 - **Junsong Du**
+
+## Further project information
+
+<a href="https://n5geh.de/"> <img alt="National 5G Energy Hub" 
+src="https://raw.githubusercontent.com/N5GEH/n5geh.platform/master/docs/logos/n5geh-logo.png" height="100"></a>
+
+## Acknowledgments
+
+We gratefully acknowledge the financial support of the Federal Ministry <br /> 
+for Economic Affairs and Climate Action (BMWK), promotional references 
+03EN1030B and 03ET1561B.
+
+<a href="https://www.bmwi.de/Navigation/EN/Home/home.html"> <img alt="BMWK" 
+src="https://raw.githubusercontent.com/N5GEH/n5geh.platform/master/docs/logos/BMWK-logo_en.png" height="100"> </a>
