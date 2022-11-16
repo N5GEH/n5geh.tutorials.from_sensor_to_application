@@ -77,7 +77,7 @@ Please complete the following steps using the corresponding postman requests:
 2. Provision Devices
 3. Check Devices
 4. Check Entities
-5. Creat QuantumLeap Subscription
+5. Create QuantumLeap Subscription
 6. Check Subscription
 
 
