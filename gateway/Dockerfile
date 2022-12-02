@@ -10,7 +10,7 @@ FROM python:3.9-slim
 WORKDIR /app
 COPY --from=0 /app/FiLiP /app/FiLiP
 RUN pip install -e /app/FiLiP
-COPY ./* /app
+COPY ./* /app/
 EXPOSE 5000
 
 CMD [ "python", "./socket2mqtt.py" ]
