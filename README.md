@@ -18,7 +18,9 @@ Before you start, please make sure that the following prerequisites are fulfille
 
     You must have access to a [N5GEH FIWARE platform](https://github.com/N5GEH/n5geh.platform), which can be hosted either on your local machine or somewhere else. For these examples, it is recommended that you host a platform on your local machine.
 
-- (Postman)
+- Postman
+
+    Postman is a testing framework for REST APIs. The tool can be downloaded from [www.getpostman.com](www.getpostman.com)
 
 ## Step by step
 
@@ -49,6 +51,8 @@ Under this scenario, there are three devices:
 
 This scenario is simulated in a container. Use the following
 command to start the simulation.
+
+> **NOTE:** if you are not using docker desktop (e.g. docker is directly installed on linx OS), please change all `host.docker.internal` in all `docker-compose.yml` files to `172.17.0.1`. Otherwise there will be a networking error.
 
 ```bash
 docker compose create
