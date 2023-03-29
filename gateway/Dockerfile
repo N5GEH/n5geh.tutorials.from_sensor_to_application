@@ -3,7 +3,7 @@
 # stage 0
 FROM alpine/git
 WORKDIR /app
-RUN git clone https://github.com/N5GEH/FiLiP.git
+RUN git clone https://github.com/RWTH-EBC/FiLiP.git
 
 # stage 1
 FROM python:3.9-slim
