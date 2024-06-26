@@ -1,6 +1,6 @@
 import threading
 from filip.models.ngsi_v2.iot import Device
-from pydantic import parse_file_as
+import json
 from typing import List
 from socketinterface import SocketInterface
 from mqttclient import MqttClient
@@ -18,7 +18,9 @@ class Socket2MQTT:
     """
     def __init__(self):
         devices_path = "devices.json"  # load the devices
-        self.devices = parse_file_as(List[Device], devices_path)
+        with open(devices_path, "r") as f:
+            devices_list = json.load(f)
+        self.devices = [Device(**device) for device in devices_list]
 
         # initialize cache
         self.measurements = list()
