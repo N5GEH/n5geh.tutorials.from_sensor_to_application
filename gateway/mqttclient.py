@@ -60,7 +60,7 @@ class MqttClient:
         The main loop of MQTT client, which listen to the command and send measurement
         to the Iot Agent
         """
-        self.mqttc.connect(host=self.mqtt_host, port=1883)
+        self.mqttc.connect(host=self.mqtt_host, port=self.mqtt_port)
         self.mqttc.subscribe()
         print(f"MQTT loop start", flush=True)
 

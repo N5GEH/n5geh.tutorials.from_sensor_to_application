@@ -59,6 +59,8 @@ docker compose create
 docker start virtual_device
 ```
 
+> **NOTE:** if you are using LD platform stack, please check the port in ``docker-compose.yml`` carefully. 
+
 The simulation can be monitored live on the [web GUI](http://localhost:8001/) as shown 
 in Figure 2.
 
