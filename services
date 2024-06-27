@@ -45,6 +45,7 @@ case "${command}" in
     fi
     # build image of pid controller
     cd n5geh.services.controller
+    cp ./PIDControl/.env.EXAMPLE ./PIDControl/.env
     docker build -f PIDControl/Dockerfile --tag pid4fiware .
     # build image of front panel of the pid controller
     cd PIDControl/control_panel
