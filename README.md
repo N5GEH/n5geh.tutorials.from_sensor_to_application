@@ -187,7 +187,7 @@ of the simulation.
 
 FIWARE platform provides a live monitoring service via Grafana. The users
 can view the value of entity attributes on a dashboard. To start the service,
-please first log in to the [Grafana Dashboard](http://localhost:3001) with the 
+please first log in to the [Grafana Dashboard](http://localhost:3000) with the 
 default username `admin` and default password `admin`.
 
 Then we need to connect to the CrateDB. Create a `PostgreSQL` datasource
