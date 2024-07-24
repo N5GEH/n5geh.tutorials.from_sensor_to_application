@@ -80,6 +80,8 @@ In this step, we will provision the devices on FIWARE platform. Each device has 
 
 [<img src="https://run.pstmn.io/button.svg" alt="Run In Postman" style="width: 128px; height: 32px;">](https://app.getpostman.com/run-collection/19622830-7799ea6a-24d1-4204-85f1-1f930d011eaf?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D19622830-7799ea6a-24d1-4204-85f1-1f930d011eaf%26entityType%3Dcollection%26workspaceId%3D2c722372-0f8e-4b7b-9661-17f17ec8c7fb)
 
+> **NOTE**: please use the requests in the folder `v2` or `ld`, depending on the platform, i.e. NGSI-V2 or NGSI-LD, that you are using
+
 Please complete the following steps using the corresponding postman requests:
 1. Create Service Group
 2. Provision Devices
