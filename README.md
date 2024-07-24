@@ -187,9 +187,15 @@ The heater power can be changed in the payload ("Body") of the request. If the c
 is successfully established, you will see the change of heater power on the [web GUI](http://localhost:8001/)
 of the simulation.
 
-### Step 4: Monitoring Services
+### Step 4: Monitoring Time Series Data
 
-FIWARE platform provides a live monitoring service via Grafana. The users
+In the previous steps, the platform has already reveived a lot of data.
+This data has been persistently stored as time series, which is also 
+available for querying and can be used for various analyses. 
+In the Postman collection, you will find three requests that query the 
+time series data for each entity individually. Feel free to try them out.
+
+Besides, there is also a live monitoring service via Grafana. The users
 can view the value of entity attributes on a dashboard. To start the service,
 please first log in to the [Grafana Dashboard](http://localhost:3000) with the 
 default username `admin` and default password `admin`.
