@@ -17,6 +17,8 @@ Before you start, please make sure that the following prerequisites are fulfille
 - N5GEH FIWARE platform
 
     You must have access to a [N5GEH FIWARE platform](https://github.com/N5GEH/n5geh.platform), which can be hosted either on your local machine or somewhere else. For these examples, it is recommended that you host a platform on your local machine.
+  This tutorial is compatible with both NGSI-V2 and NGSI-LD platforms.
+  > **NOTE**: if you are using our configuration of NGSI-LD platform from [here](https://github.com/N5GEH/n5geh.platform/tree/master/ld), please check and adapt the settings in `docker-compose.yml` of this tutorials, i.e., use `MQTT_PORT=1884`
 
 - Postman
 
