@@ -3,39 +3,54 @@
     "list": [
       {
         "builtIn": 1,
-        "datasource": "-- Grafana --",
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
         "enable": true,
         "hide": true,
         "iconColor": "rgba(0, 211, 255, 1)",
         "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
         "type": "dashboard"
       }
     ]
   },
   "editable": true,
-  "gnetId": null,
+  "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 5,
+  "id": 1,
   "links": [],
+  "liveNow": false,
   "panels": [
     {
-      "datasource": null,
+      "datasource": {
+        "type": "postgres",
+        "uid": "B0HvwfXSz"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
             "mode": "palette-classic"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
-            "fillOpacity": 10,
+            "fillOpacity": 0,
             "gradientMode": "none",
             "hideFrom": {
-              "graph": false,
               "legend": false,
-              "tooltip": false
+              "tooltip": false,
+              "viz": false
             },
             "lineInterpolation": "linear",
             "lineWidth": 1,
@@ -43,12 +58,17 @@
             "scaleDistribution": {
               "type": "linear"
             },
-            "showPoints": "never",
-            "spanNulls": true
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
           },
           "mappings": [],
-          "max": 40,
-          "min": -10,
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -61,8 +81,7 @@
                 "value": 80
               }
             ]
-          },
-          "unit": "short"
+          }
         },
         "overrides": []
       },
@@ -75,74 +94,93 @@
       "id": 2,
       "links": [],
       "options": {
-        "graph": {},
         "legend": {
           "calcs": [],
           "displayMode": "list",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
-        "tooltipOptions": {
-          "mode": "single"
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
         }
       },
-      "pluginVersion": "7.5.16",
+      "pluginVersion": "9.3.0",
       "targets": [
         {
+          "datasource": {
+            "type": "postgres",
+            "uid": "B0HvwfXSz"
+          },
+          "editorMode": "code",
           "format": "time_series",
-          "group": [],
-          "metricColumn": "entity_id",
-          "rawQuery": false,
-          "rawSql": "SELECT\n  time_index  AS \"time\",\n  entity_id AS metric,\n  temperature\nFROM etweatherstation\nORDER BY 1,2",
+          "rawQuery": true,
+          "rawSql": "SELECT\r\n  time_index  AS \"time\",\r\n  temperature AS room_temperature\r\nFROM ettemperaturesensor\r\nWHERE\r\n  $__timeFilter(time_index )\r\nORDER BY 1,2",
           "refId": "A",
-          "select": [
-            [
+          "sql": {
+            "columns": [
               {
-                "params": [
-                  "temperature"
-                ],
-                "type": "column"
+                "parameters": [],
+                "type": "function"
               }
-            ]
-          ],
-          "table": "etweatherstation",
-          "timeColumn": "time_index ",
-          "where": []
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
         },
         {
-          "format": "time_series",
-          "group": [],
-          "metricColumn": "entity_id",
-          "rawQuery": false,
-          "rawSql": "SELECT\n  time_index AS \"time\",\n  entity_id AS metric,\n  temperature\nFROM ettemperaturesensor \nORDER BY 1,2",
+          "datasource": {
+            "type": "postgres",
+            "uid": "B0HvwfXSz"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "hide": false,
+          "rawQuery": true,
+          "rawSql": "SELECT\r\n  time_index  AS \"time\",\r\n  temperature AS outside_temperature\r\nFROM etweatherstation\r\nWHERE\r\n  $__timeFilter(time_index )\r\nORDER BY 1,2",
           "refId": "B",
-          "select": [
-            [
+          "sql": {
+            "columns": [
               {
-                "params": [
-                  "temperature"
-                ],
-                "type": "column"
+                "parameters": [],
+                "type": "function"
               }
-            ]
-          ],
-          "table": "ettemperaturesensor ",
-          "timeColumn": "time_index",
-          "where": []
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
       "title": "Temperature",
       "type": "timeseries"
     },
     {
-      "datasource": null,
+      "datasource": {
+        "type": "postgres",
+        "uid": "B0HvwfXSz"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
             "mode": "palette-classic"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
@@ -152,7 +190,8 @@
             "hideFrom": {
               "graph": false,
               "legend": false,
-              "tooltip": false
+              "tooltip": false,
+              "viz": false
             },
             "lineInterpolation": "linear",
             "lineWidth": 1,
@@ -161,7 +200,14 @@
               "type": "linear"
             },
             "showPoints": "never",
-            "spanNulls": true
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
           },
           "mappings": [],
           "thresholds": {
@@ -195,44 +241,45 @@
         "legend": {
           "calcs": [],
           "displayMode": "list",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
-        "tooltipOptions": {
-          "mode": "single"
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
         }
       },
       "pluginVersion": "7.5.16",
       "targets": [
         {
-          "format": "time_series",
-          "group": [],
-          "metricColumn": "entity_id",
-          "rawQuery": false,
-          "rawSql": "SELECT\n  time_index AS \"time\",\n  entity_id AS metric,\n  heaterPower_info AS \"heaterPower_info\"\nFROM etheater\nORDER BY 1,2",
+          "datasource": {
+            "type": "postgres",
+            "uid": "B0HvwfXSz"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT\r\n  time_index  AS \"time\",\r\n  heaterPower_info AS \"heater power\"\r\nFROM etheater\r\nWHERE\r\n  $__timeFilter(time_index )\r\nORDER BY 1,2",
           "refId": "A",
-          "select": [
-            [
+          "sql": {
+            "columns": [
               {
-                "params": [
-                  "heaterPower_info"
-                ],
-                "type": "column"
-              },
-              {
-                "params": [
-                  "heaterPower_info"
-                ],
-                "type": "alias"
+                "parameters": [],
+                "type": "function"
               }
-            ]
-          ],
-          "table": "etheater",
-          "timeColumn": "time_index",
-          "where": []
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
       "title": "HeaterPower",
       "transformations": [
         {
@@ -252,7 +299,7 @@
     }
   ],
   "refresh": "5s",
-  "schemaVersion": 27,
+  "schemaVersion": 37,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -290,5 +337,6 @@
   "timezone": "",
   "title": "N5GEH_Tutorial",
   "uid": "fdfFef",
-  "version": 5
+  "version": 2,
+  "weekStart": ""
 }
