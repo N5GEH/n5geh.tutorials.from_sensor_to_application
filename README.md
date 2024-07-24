@@ -78,7 +78,7 @@ connection between them will be established in the following steps.
 
 In this step, we will provision the devices on FIWARE platform. Each device has to be provisioned, so that the platform can ever know what can be measured by the sensor and what commands can be sent to the actuators. The Prosioning is done by sending HTTP request to the [IoT Agent](https://iotagent-node-lib.readthedocs.io/en/latest/api.html) API. For this tutorial, it is not requied to understand the logics behind these HTTP requests. Therefore, we prepare a postman collection to collect the necessary HTTP requests.
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/19622830-f4344360-fe69-4e2d-a935-b7dbbc51eca4?action=collection%2Ffork&collection-url=entityId%3D19622830-f4344360-fe69-4e2d-a935-b7dbbc51eca4%26entityType%3Dcollection%26workspaceId%3D2c722372-0f8e-4b7b-9661-17f17ec8c7fb)
+[<img src="https://run.pstmn.io/button.svg" alt="Run In Postman" style="width: 128px; height: 32px;">](https://app.getpostman.com/run-collection/19622830-7799ea6a-24d1-4204-85f1-1f930d011eaf?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D19622830-7799ea6a-24d1-4204-85f1-1f930d011eaf%26entityType%3Dcollection%26workspaceId%3D2c722372-0f8e-4b7b-9661-17f17ec8c7fb)
 
 Please complete the following steps using the corresponding postman requests:
 1. Create Service Group
