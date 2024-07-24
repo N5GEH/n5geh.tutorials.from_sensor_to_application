@@ -193,7 +193,7 @@ please first log in to the [Grafana Dashboard](http://localhost:3000) with the
 default username `admin` and default password `admin`.
 
 Then we need to connect to the CrateDB. Create a `PostgreSQL` datasource
-[here](http://localhost:3001/datasources) and use the following setups.
+[here](http://localhost:3000/datasources) and use the following setups.
 
 - **Name:** Controller (an arbitrary name)
 - **Host:** crate:5432 (crate is the host name of CrateDB inside the docker network, 5432 is an internal open port for SQL query)
