@@ -26,9 +26,11 @@ Before you start, please make sure that the following prerequisites are fulfille
 
 ## Step by step
 
-To start the tutorial, please run the bash script as below:
+To start the tutorial, please first clone the repository and then run the bash script as below:
 
 ```bash
+git clone https://github.com/N5GEH/n5geh.tutorials.from_sensor_to_application.git
+cd from_sensor_to_application
 ./services create
 ```
 
