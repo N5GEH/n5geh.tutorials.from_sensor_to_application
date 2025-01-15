@@ -30,7 +30,7 @@ To start the tutorial, please first clone the repository and then run the bash s
 
 ```bash
 git clone https://github.com/N5GEH/n5geh.tutorials.from_sensor_to_application.git
-cd from_sensor_to_application
+cd n5geh.tutorials.from_sensor_to_application
 ./services create
 ```
 
