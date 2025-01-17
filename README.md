@@ -217,7 +217,7 @@ Then we need to connect to the CrateDB. Create a `PostgreSQL` datasource
 
 As next step, the time-series data of each device can be queried and displayed in a 
 dashboard. For simplicity, you can load an existing template, 
-`Grafana_Template.json`, [here](http://localhost:3001/dashboard/import).
+`Grafana_Template.json`, [here](http://localhost:3000/dashboard/import).
 
 > **NOTE**: If you get a field type error for `heaterpower_info`, you can downgrade the Grafana version. Change this line [here](https://github.com/N5GEH/n5geh.platform/blob/b9a6a7d55dd0d59d7dcbb71052dc717720822d0e/docker-compose.yml#L103) to `image: grafana/grafana:9.0.1`, and then use `docker compose up -d` to restart the platform.
 
@@ -275,7 +275,7 @@ cd n5geh.services.controller/PIDControl
 docker compose up -d
 ```
 
-Now you can see the effect of the PID controller in [Grafana dashboard](http://localhost:3001).
+Now you can see the effect of the PID controller in [Grafana dashboard](http://localhost:3000).
 
 <img src="./figures/Grafana_controller.png" alt="Effect of PID controller" width="600"/>
 
