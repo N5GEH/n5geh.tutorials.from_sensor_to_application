@@ -85,12 +85,13 @@ In this step, we will provision the devices on FIWARE platform. Each device has 
 > **NOTE**: please use the requests in the folder `v2` or `ld`, depending on the platform, i.e. NGSI-V2 or NGSI-LD, that you are using
 
 Please complete the following steps using the corresponding postman requests:
-1. Create Service Group
-2. Provision Devices
-3. Check Devices
-4. Check Entities
-5. Create QuantumLeap Subscription
-6. Check Subscription
+1. Create Entities
+2. Create Service Group
+3. Provision Devices
+4. Check Devices
+5. Check Entities
+6. Create QuantumLeap Subscription
+7. Check Subscription
 
 
 ### Step 3: Connect the Devices to the Platform
@@ -119,7 +120,7 @@ The URNs represent the identifier of devices (URN_1) and their
 attributes/commands (URN_2). In this tutorial there are three devices, and each
 device has only one attribute or one command. Their URNs are set as follows:
 
-<img src="./figures/identifiers.png" alt="URNs of the virtuel devices" width="400"/>
+<img src="./figures/identifiers.png" alt="URNs of the virtual devices" width="400"/>
 
 Since the data flow of socket communication is not supported by FIWARE
 (just like many other communications technology), a gateway has to be deployed as a middleware

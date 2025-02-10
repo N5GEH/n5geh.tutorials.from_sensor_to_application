@@ -1,0 +1,3 @@
+PySimpleGUIWeb
+remi
+numpy
