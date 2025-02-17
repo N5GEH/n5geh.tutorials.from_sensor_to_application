@@ -23,10 +23,7 @@
   "liveNow": false,
   "panels": [
     {
-      "datasource": {
-        "type": "postgres",
-        "uid": "a993308f-165c-4320-963e-0f6aaa440b4c"
-      },
+      "datasource": null,
       "description": "Measurement from the indoor temperature sensor and the weather station (outdoor temperature).",
       "fieldConfig": {
         "defaults": {
@@ -107,10 +104,7 @@
       },
       "targets": [
         {
-          "datasource": {
-            "type": "postgres",
-            "uid": "a993308f-165c-4320-963e-0f6aaa440b4c"
-          },
+          "datasource": null,
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
@@ -135,10 +129,7 @@
           }
         },
         {
-          "datasource": {
-            "type": "postgres",
-            "uid": "a993308f-165c-4320-963e-0f6aaa440b4c"
-          },
+          "datasource": null,
           "editorMode": "code",
           "format": "table",
           "hide": false,
@@ -169,10 +160,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": {
-        "type": "postgres",
-        "uid": "a993308f-165c-4320-963e-0f6aaa440b4c"
-      },
+      "datasource": null,
       "description": "Measurements from the heater",
       "fieldConfig": {
         "defaults": {
@@ -273,10 +261,7 @@
       },
       "targets": [
         {
-          "datasource": {
-            "type": "postgres",
-            "uid": "a993308f-165c-4320-963e-0f6aaa440b4c"
-          },
+          "datasource": null,
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
