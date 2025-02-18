@@ -1,7 +1,7 @@
 # N5GEH Tutorial
 
-This is a tutorial of N5GEH project. This tutorial intended to provide a brief overview
-about how devices (sensors/actuators) can be connected to the FIWARE IoT platform. This
+This is a tutorial of N5GEH project. This tutorial is intended to provide a brief overview
+on how devices (sensors/actuators) can be connected to the FIWARE IoT platform. This
 tutorial uses a simple scenario to work you through the whole procedure of 
 connecting devices to FIWARE platform. Besides, this tutorial also shows the usage of 
 two basic services, i.e. live monitoring and cloud controller.
@@ -91,7 +91,8 @@ Please complete the following steps using the corresponding postman requests:
 4. Check Devices
 5. Check Entities
 6. Create QuantumLeap Subscription
-7. Check Subscription
+7. Create MQTT Notification Subscription
+8. Check Subscription
 
 
 ### Step 3: Connect the Devices to the Platform
@@ -184,7 +185,7 @@ following command:
 docker start gateway
 ```
 
-In oder to check the connection, we will try to chang the heater power by sending command
+In oder to check the connection, we will try to change the heater power by sending command
 to FIWARE platform. The corresponding request is `Send Command` in the postman collection.
 The heater power can be changed in the payload ("Body") of the request. If the connection
 is successfully established, you will see the change of heater power on the [web GUI](http://localhost:8001/)
@@ -192,7 +193,7 @@ of the simulation.
 
 ### Step 4: Monitoring Time Series Data
 
-In the previous steps, the platform has already reveived a lot of data.
+In the previous steps, the platform has already received a lot of data.
 This data has been persistently stored as time series, which is also 
 available for querying and can be used for various analyses. 
 In the Postman collection, you will find three requests that query the 
