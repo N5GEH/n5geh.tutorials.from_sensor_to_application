@@ -6,6 +6,7 @@ WORKDIR /app
 COPY ./requirements.txt /app/requirements.txt
 
 RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --upgrade remi
 
 COPY ./figures /app/figures
 COPY ./SimulationModel.py /app/SimulationModel.py

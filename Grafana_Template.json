@@ -265,7 +265,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT \r\n  time_index AS time,\r\n  heaterPower_info AS heater_power\r\nFROM etheater\r\nWHERE $__timeFilter(time_index)\r\nORDER BY 1,2 ",
+          "rawSql": "SELECT \r\n  time_index AS time,\r\n  heaterPower AS heater_power\r\nFROM etheater\r\nWHERE $__timeFilter(time_index)\r\nORDER BY 1,2 ",
           "refId": "A",
           "sql": {
             "columns": [
