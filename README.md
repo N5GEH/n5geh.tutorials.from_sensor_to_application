@@ -87,12 +87,16 @@ In this step, we will provision the devices on FIWARE platform. Each device has 
 Please complete the following steps using the corresponding postman requests:
 1. Create Entities
 2. Create Service Group
-3. Provision Devices
-4. Check Devices
-5. Check Entities
-6. Create QuantumLeap Subscription
-7. Create MQTT Notification Subscription
-8. Check Subscription
+3. Create Devices
+4. Create MQTT Command Connection
+5. Create Timeseries Subscription
+
+After that, the **provisioning** of the devices and data persistence is done. You can check the created elements via:
+
+6. Check Service Group
+7. Check Devices
+8. Check Entities
+9. Check Subscription
 
 
 ### Step 3: Connect the Devices to the Platform
