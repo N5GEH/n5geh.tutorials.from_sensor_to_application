@@ -1,7 +1,7 @@
 # N5GEH Tutorial
 
-This is a tutorial of N5GEH project. This tutorial intended to provide a brief overview
-about how devices (sensors/actuators) can be connected to the FIWARE IoT platform. This
+This is a tutorial of N5GEH project. This tutorial is intended to provide a brief overview
+on how devices (sensors/actuators) can be connected to the FIWARE IoT platform. This
 tutorial uses a simple scenario to work you through the whole procedure of 
 connecting devices to FIWARE platform. Besides, this tutorial also shows the usage of 
 two basic services, i.e. live monitoring and cloud controller.
@@ -85,12 +85,18 @@ In this step, we will provision the devices on FIWARE platform. Each device has 
 > **NOTE**: please use the requests in the folder `v2` or `ld`, depending on the platform, i.e. NGSI-V2 or NGSI-LD, that you are using
 
 Please complete the following steps using the corresponding postman requests:
-1. Create Service Group
-2. Provision Devices
-3. Check Devices
-4. Check Entities
-5. Create QuantumLeap Subscription
-6. Check Subscription
+1. Create Entities
+2. Create Service Group
+3. Create Devices
+4. Create MQTT Command Connection
+5. Create Timeseries Subscription
+
+After that, the **provisioning** of the devices and data persistence is done. You can check the created elements via:
+
+6. Check Service Group
+7. Check Devices
+8. Check Entities
+9. Check Subscription
 
 
 ### Step 3: Connect the Devices to the Platform
@@ -119,7 +125,7 @@ The URNs represent the identifier of devices (URN_1) and their
 attributes/commands (URN_2). In this tutorial there are three devices, and each
 device has only one attribute or one command. Their URNs are set as follows:
 
-<img src="./figures/identifiers.png" alt="URNs of the virtuel devices" width="400"/>
+<img src="./figures/identifiers.png" alt="URNs of the virtual devices" width="400"/>
 
 Since the data flow of socket communication is not supported by FIWARE
 (just like many other communications technology), a gateway has to be deployed as a middleware
@@ -183,7 +189,7 @@ following command:
 docker start gateway
 ```
 
-In oder to check the connection, we will try to chang the heater power by sending command
+In oder to check the connection, we will try to change the heater power by sending command
 to FIWARE platform. The corresponding request is `Send Command` in the postman collection.
 The heater power can be changed in the payload ("Body") of the request. If the connection
 is successfully established, you will see the change of heater power on the [web GUI](http://localhost:8001/)
@@ -191,7 +197,7 @@ of the simulation.
 
 ### Step 4: Monitoring Time Series Data
 
-In the previous steps, the platform has already reveived a lot of data.
+In the previous steps, the platform has already received a lot of data.
 This data has been persistently stored as time series, which is also 
 available for querying and can be used for various analyses. 
 In the Postman collection, you will find three requests that query the 
